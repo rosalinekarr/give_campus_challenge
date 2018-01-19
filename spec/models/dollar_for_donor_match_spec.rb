@@ -22,4 +22,19 @@ RSpec.describe DollarForDonorMatch, type: :model do
       expect(match).not_to be_valid
     end
   end
+
+  describe "#match" do
+    it "creates a new donation" do
+      donation = FactoryBot.create :donation
+      match = FactoryBot.create :dollar_for_donor_match
+      expect{ match.match(donation) }.to change{ Donation.count }.by(1)
+    end
+
+    it "creates a new donation with the fixed amount" do
+      donation = FactoryBot.create :donation
+      match = FactoryBot.create :dollar_for_donor_match
+      match.match(donation)
+      expect(Donation.last.amount).to eq(match.amount)
+    end
+  end
 end
