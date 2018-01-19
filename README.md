@@ -1,24 +1,10 @@
-# README
+# Notes
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+I probably wasted too much time setting up the donation model and implementing
+matching maximums incorrect when I misunderstood the problem. If I had more
+time, I would have made the following changes:
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Better testing on the `Match` model and `DonationsController`
+- I would have added a `total_donated` column to the `matches` table for more
+  efficient tracking on which matches should be fetched in the controller.
+- I would have cleaned up the front end much more
