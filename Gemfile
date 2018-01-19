@@ -40,6 +40,8 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   # Use factory_bot for generating models in test
   gem 'factory_bot_rails'
+  # Include controller testing for templates
+  gem 'rails-controller-testing'
   # Use rspec-rails for testing
   gem 'rspec-rails', '~> 3.7'
   gem 'selenium-webdriver'
