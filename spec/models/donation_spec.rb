@@ -16,5 +16,10 @@ RSpec.describe Donation, type: :model do
       donation = FactoryBot.build :donation, amount: 0.99
       expect(donation).not_to be_valid
     end
+
+    it "validates the amount is not more than $1,000,000.00" do
+      donation = FactoryBot.build :donation, amount: 1_000_000.01
+      expect(donation).not_to be_valid
+    end
   end
 end
