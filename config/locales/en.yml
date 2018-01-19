@@ -35,3 +35,7 @@ en:
       title: "New Donation"
     create:
       thank_you: "Thank you for your donation!"
+  simple_form:
+    labels:
+      donation:
+        amount: "Amount $"

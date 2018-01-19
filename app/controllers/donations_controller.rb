@@ -1,6 +1,6 @@
 class DonationsController < ApplicationController
   def new
-    @donation = Donation.new
+    @donation = Donation.new(amount: 1.00)
   end
 
   def create

@@ -1,7 +1,12 @@
 <h1><%= t('.title') %>
 
 <%= simple_form_for @donation do |f| %>
-  <%= f.input :amount %>
+  <%= f.input :amount, as: :decimal, input_html: {
+    step: 0.01,
+    min: Donation::MINIMUM_AMOUNT,
+    max: Donation::MAXIMUM_AMOUNT,
+    pattern: "\d+(\.\d{2})?"
+  } %>
   <%= f.input :name %>
   <%= f.button :submit %>
 <% end %>
