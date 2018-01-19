@@ -1,0 +1,3 @@
+class DollarForDonorMatch < Match
+
+end

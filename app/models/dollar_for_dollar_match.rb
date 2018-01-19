@@ -1,0 +1,3 @@
+class DollarForDollarMatch < Match
+
+end
