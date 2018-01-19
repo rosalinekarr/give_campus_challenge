@@ -31,5 +31,7 @@
 
 en:
   donations:
+    new:
+      title: "New Donation"
     create:
       thank_you: "Thank you for your donation!"
