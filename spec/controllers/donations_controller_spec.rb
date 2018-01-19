@@ -14,11 +14,21 @@ RSpec.describe DonationsController, type: :controller do
       post :create, params: { donation: donation_attributes }
     end
 
-    context "when the donation given has an amount" do
+    context "when the donation has a valid amount" do
       let(:donation_attributes) { FactoryBot.attributes_for :donation }
 
       it "creates a new donation with the given amount" do
         expect(Donation.last.amount).to eq(donation_attributes[:amount])
+      end
+
+      it "creates matching donations for dollar for dollar" do
+        FactoryBot.create :dollar_for_dollar_match
+        expect(Donation.count).to eq(2)
+      end
+
+      it "creates matching donations for dollar for donor" do
+        match = FactoryBot.create :dollar_for_donor_match
+        expect(Donation.last.amount).to eq(match.amount)
       end
 
       it "redirects to the root path" do

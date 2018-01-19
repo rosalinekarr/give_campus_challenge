@@ -7,6 +7,11 @@ class DollarForDonorMatch < Match
   validates :amount, numericality: { less_than_or_equal_to:    MAXIMUM_AMOUNT }
 
   def match(donation)
-    Donation.create(amount: self.amount)
+    if (self.amount + self.total_donated) < self.maximum
+      amount = self.amount
+    else
+      amount = self.maximum - self.total_donated
+    end
+    Donation.create(amount: amount, match: self) if amount > 0.0
   end
 end
